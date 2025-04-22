@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - conference</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            margin-top:80px;
+            text-align: center;
+            color: #333;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            border:2px solid black;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" style="color:#d32f2f; margin-left:20px; font-weight: bold;">Back to home page</a><br>
+    <h1>REGISTRATION FORM</h1>
+    <form id="RegForm" name="RegForm" action="success.html">
+        <p>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="Name" placeholder="Enter your full name" >
+            <span id="name-error" class="error-message"></span>
+        </p>
+        <p>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="Address" placeholder="Enter your address" >
+            <span id="address-error" class="error-message"></span>
+        </p>
+        <p>
+            <label for="email">E-mail Address:</label>
+            <input type="text" id="email" name="EMail" placeholder="Enter your email" >
+            <span id="email-error" class="error-message"></span>
+        </p>
+        <p>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="Password" placeholder="Enter your password">
+            <span id="password-error" class="error-message"></span>
+        </p>
+        <p>
+            <label for="eventname">Select Event Name:</label>
+            <select id="eventname" name="eventname">
+                <option value="">Select Event</option>
+                <option value="BTECH">Conference</option>
+                <option value="BBA">Workshop</option>
+            </select>
+            <span id="eventname-error" class="error-message"></span>
+        </p>
+        <p>
+            <label for="title">Select Title Name:</label>
+            <select id="titlename" name="titlename">
+                <option value="">Select title</option>
+                <option value="technology">Tech Conference</option>
+                <option value="ai">AI Summit</option>
+                <option value="business">Business Expo</option>
+                <option value="web design">Web Development Workshop</option>
+                <option value="data science">Python for Data Science</option>
+                <option value="digital marketing">Digital Marketing Workshop</option>
+            </select>
+            <span id="titlename-error" class="error-message"></span>
+        </p>
+        <p>
+            <input type="submit" value="Submit" name="Submit" >
+            <input type="reset" value="Reset" name="Reset" >
+        </p>
+    </form>
+    <script>
+        document.getElementById("RegForm").addEventListener("submit", function(event) {
+            const name = document.getElementById("name").value;
+            const addr = document.getElementById("address").value;
+            const email = document.getElementById("email").value;
+            const pass = document.getElementById("password").value;
+            const eventname = document.getElementById("eventname").value;
+            const title = document.getElementById("titlename").value;
+           
+            const nameErr = document.getElementById("name-error");
+            const addrErr = document.getElementById("address-error");
+            const emailErr = document.getElementById("email-error");
+            const passErr = document.getElementById("password-error");
+            const eventErr = document.getElementById("eventname-error");
+            const titleErr = document.getElementById("titlename-error")
+            
+            nameErr.textContent = "";
+            addrErr.textContent = "";
+            emailErr.textContent = "";
+            passErr.textContent = "";
+            eventErr.textContent = "";
+            titleErr.textContent = "";
+
+            let isValid = true;
+            if (name === "") {
+                nameErr.textContent = "Please enter your name properly.";
+                isValid = false;
+            }
+            if (addr === "") {
+                addrErr.textContent = "Please enter your address.";
+                isValid = false;
+            }
+            if (email === "" || !email.includes("@") || !email.includes(".")) {
+                emailErr.textContent = "Please enter a valid email address.";
+                isValid = false;
+            }
+            if (pass === "" || pass.length < 6) {
+                passErr.textContent = "Please enter a password with at least 6 characters.";
+                isValid = false;
+            }
+            if (eventname === "") {
+                eventErr.textContent = "Please enter your event name .";
+                isValid = false;
+            }
+            if (title === ""){
+                titleErr.textContent = "Please select your title name.";
+                isValid = false;
+            }
+            if (isValid) {
+                alert("Form submitted successfully!");
+                return true;
+            } else {
+                event.preventDefault();
+                return false; 
+            }
+        });
+
+        document.getElementById("RegForm").addEventListener("reset", function(event) {
+            document.getElementById("name-error").textContent = "";
+            document.getElementById("address-error").textContent = "";
+            document.getElementById("email-error").textContent = "";
+            document.getElementById("password-error").textContent = "";
+            document.getElementById("eventname-error").textContent = "";
+            document.getElementById("titlename-error").textContent = "";
+        });
+    </script>
+</body>
+</html>
+
+

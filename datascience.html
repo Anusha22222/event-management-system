@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management - Python for Data Science Workshop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body{
+          background-color: #50223c;
+        }
+        header{
+          position: fixed;
+          width: 100%;
+          z-index: 1000;
+        }
+        main{
+            padding-top: 4rem;
+        }
+        .nav-link{
+            color:white;
+        }
+        .rounded-img {
+            border-radius: 50%; 
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 5px solid #f8f9fa; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+            margin-bottom: 1rem;
+        }
+
+        .speaker-info {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .speaker-info p {
+            margin-top: 0.5rem;
+        }
+        #schedule p{
+          color:black;
+        }
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 8px;
+            background-color:#f0dac5;
+            font-weight: bold;
+        }
+        iframe {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">EventHub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#speakers">Speakers</a></li>
+                <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
+                <li class="nav-item"><a class="nav-link" href="#location">Location</a></li>
+                <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
+            </ul>
+        </div> 
+    </div>
+</nav>
+</header>
+
+<main>
+<a href="index.html" style="padding-top: 80px;color:magenta;margin-left: 10px;font-weight: bold">Back to home page</a><br>
+<br>
+<!-- About -->
+<section id="about" class="py-5">
+        <h1 style="text-align: center;color:darkred;">PYTHON FOR DATA SCIENCE WORKSHOP</h1><br>
+        <div style="text-align: center;">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/fonvgTBcXME?si=OSgkp71CVfw2KW54" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div><br>
+        <p style="text-align: center;color:black;font-size: larger;font: bold;">Unlock the power of data with Python! Join our intensive workshop.</p>
+</section>
+<br>
+
+
+<!-- Speakers -->
+<section id="speakers" class="py-5">
+  <h1 class="text-center  mb-4" style="color:darkred">SPEAKERS</h1>
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-md-4 text-center speaker-info">
+              <img src="https://images.ctfassets.net/s5uo95nf6njh/5LWjymDk9ctyQvZvB8SkNw/272b45430dd1ee9bafc2743108abb4a2/wes-mckinney-hero.jpg?w=2000&fm=jpg" alt="Wes McKinney" class="rounded-img">
+              <h3 style="color:black">Wes McKinney </h3>
+              <p  style="color:black;font-size: larger;">Software Developer</p>
+          </div>
+          <div class="col-md-4 text-center speaker-info">
+              <img src="https://avatars.githubusercontent.com/u/3612307?v=4" alt="Shubham Choudhary" class="rounded-img">
+              <h3 style="color:black">Shubham Choudhary</h3>
+              <p  style="color:black;font-size: larger;">Lead Data Scientist</p>
+          </div>
+          <div class="col-md-4 text-center speaker-info">
+              <img src="https://assets-us-01.kc-usercontent.com/5cb25086-82d2-4c89-94f0-8450813a0fd3/f6b889df-a10d-402e-ad7a-0526c8981819/Hilary_Mason.jpg?fm=jpg&auto=format" alt="Dr. Hilary Mason" class="rounded-img">
+              <h3 style="color:black">Dr. Hilary Mason</h3>
+              <p  style="color:black;font-size: larger;">Founder of Fast Forward Labs</p>
+          </div>
+      </div>
+  </div>
+</section>
+<br>
+<!-- Schedule -->
+<section id="schedule" class="py-5">
+    <h1 style="text-align: center; color:darkred;">SCHEDULE</h1><br>
+    <p style="text-align: center; color: green; font-size: 1.2rem; font-weight: bold;"><u>EVENT DATE: JUNE 5</u></p><br>
+    <p style="text-align: center; font-size: 1.1rem; font-weight: 600;">9.00AM to 10.00AM</p>
+    <p style="text-align: center;font-size: 1.1rem;">Wes McKinney</p>
+    <p style="text-align: center;font-size: 1.1rem;">Python for Data Analysis: Pandas & NumPy Essentials</p><br>
+    <hr style="color: #66bb6a;">
+    <p style="text-align: center; font-size: 1.1rem; font-weight: 600;">10.30AM to 11.30AM</p>
+    <p style="text-align: center; font-size: 1.1rem;">Shubham Choudhary</p>
+    <p style="text-align: center; font-size: 1.1rem;">Big Data Processing with Python & Cloud Platforms</p><br>
+    <hr style="color: #66bb6a;">
+    <p style="text-align: center; font-size: 1.1rem; font-weight: 600;">12.00PM to 1.00PM</p>
+    <p style="text-align: center; font-size: 1.1rem;"> Dr. Hilary Mason</p>
+    <p style="text-align: center;font-size: 1.1rem;">Machine Learning</p>
+</section>
+<br>
+<!-- Location Section -->
+<section id="location" class="py-5">
+  <h1 style="color:darkred;text-align: center;">Event Location</h1>
+  <p style="color:black;font-size: large;">Event will take place at the EventHub Center, located at Gandhipuram, Coimbatore, India.</p>
+  <div class="text-center">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15665.12005579899!2d76.95710773326499!3d11.017605188684316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85855910aed83%3A0x80875de5cd370a9d!2sGandhipuram%2C%20Tamil%20Nadu%20641012!5e0!3m2!1sen!2sin!4v1743838480257!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+<br>
+<!-- Packages Section -->
+<section id="packages" class="py-5">
+<h1 style="color:darkred;text-align: center;">Event Packages</h1><br>
+<div class="row">
+  <div class="col-md-4">
+      <div class="card mb-4">
+          <div class="card-body text-center" >
+              <h5 class="card-title">Basic Package</h5>
+              <p style="text-align: center;background-color: gold;">$99</p>
+              <a href="payment.html" class="btn btn-success">Choose Package</a>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-4">
+      <div class="card mb-4">
+          <div class="card-body text-center" >
+              <h5 class="card-title">Standard Package</h5>
+              <p style="text-align: center;background-color: gold;">$199</p>
+              <a href="payment.html" class="btn btn-success">Choose Package</a>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-4">
+      <div class="card mb-4">
+          <div class="card-body text-center" >
+              <h5 class="card-title">VIP Package</h5>
+              <p style="text-align: center;background-color: gold;">$299</p>
+              <a href="payment.html" class="btn btn-success">Choose Package</a>
+          </div>
+      </div>
+  </div>
+</div>
+</section>
+<br>
+</main>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 EventHub. All rights reserved.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

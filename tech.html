@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management - Tech Conference</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            background-color: #ADEFD1FF; /* More dynamic gradient */
+            margin: 0;
+            padding-bottom: 50px; 
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f8f9fa ;
+        }
+
+        .nav-link {
+            color: #f8f9fa;
+            margin-left: 1rem;
+        }
+
+        .nav-link:hover {
+            color: #ffc107 ;
+        }
+
+        main {
+            padding-top: 6rem; 
+        }
+
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 8px;
+            background-color:#00203FFF;
+            font-weight: bold;
+        }
+        #speakers {
+            color: #333; 
+        }
+
+        #speakers p {
+            color: #555;
+        }
+        #schedule h1 {
+            color: #ffc107; 
+        }
+
+        #schedule u {
+            color: #f8f9fa;
+        }
+
+        #schedule hr {
+            border-top: 1px solid rgba(255, 255, 255, 0.2); 
+        }
+
+        .rounded-img {
+            border-radius: 50%; 
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 5px solid #f8f9fa; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+            margin-bottom: 1rem;
+        }
+
+        .speaker-info {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .speaker-info p {
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #343a40; 
+            color: #f8f9fa;
+            text-align: center;
+            padding: 1rem 0;
+            z-index: 1000;
+        }
+
+        /* Button Styling */
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            transition: background-color 0.3s ease, border-color 0.3s ease, border-radius 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            border-radius: 10px; /* Less extreme rounded corners */
+        }
+
+        /* Link to homepage */
+        a[href*="index.html"] {
+            display: block;
+            color:#333;
+            text-decoration: none;
+            margin-top: 2px; 
+            margin-left: 20px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a[href*="index.html"]:hover {
+            color: #007bff;
+        }
+
+        iframe {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">EventHub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#speakers">Speakers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#location">Location</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <a href="index.html">Back to home page</a>
+    <h1 class="text-center" style="color:black">TECH CONFERENCE</h1>
+
+    <section id="about" class="py-5 text-center">
+        <h1 style="color:gold">ABOUT</h1><br>
+        <div class="ratio ratio-16x9 mx-auto" style="max-width: 600px;">
+            <iframe src="https://www.youtube.com/embed/tUP5S4YdEJo?si=feESid0cdEEluVhY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div><br>
+        <p style="color:white;font-size: larger;">Tech conferences are events where industry professionals, innovators, and enthusiasts gather to learn about the latest technologies, network, and collaborate, offering educational opportunities, networking, and showcasing innovation.</p>
+    </section><br>
+
+    <section id="speakers" class="py-5">
+        <h1 class="text-center  mb-4" style="color:gold">SPEAKERS</h1>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4 text-center speaker-info">
+                    <img src="https://imageio.forbes.com/specials-images/imageserve/5d6ae14f673aa300083caf99/0x0.jpg?format=jpg&crop=2923,2926,x3051,y26,safe&height=416&width=416&fit=bounds" alt="Satya Nadella" class="rounded-img">
+                    <h3 style="color:white">Satya Nadella</h3>
+                    <p  style="color:white;font-size: larger;">CEO of Microsoft</p>
+                </div>
+                <div class="col-md-4 text-center speaker-info">
+                    <img src="https://i.insider.com/644392e43d49030019df20c1?width=700" alt="Sundar Pichai" class="rounded-img">
+                    <h3 style="color:white">Sundar Pichai</h3>
+                    <p  style="color:white;font-size: larger;">CEO of Google</p>
+                </div>
+                <div class="col-md-4 text-center speaker-info">
+                    <img src="https://imageio.forbes.com/specials-images/imageserve/5f779738b82663aa866a3686/0x0.jpg?format=jpg&crop=1478,1479,x201,y146,safe&height=416&width=416&fit=bounds" alt="Marissa Mayer" class="rounded-img">
+                    <h3 style="color:white">Marissa Mayer</h3>
+                    <p  style="color:white;font-size: larger;">Former CEO of Yahoo</p>
+                </div>
+            </div>
+        </div>
+    </section><br>
+
+    <section id="schedule" class="py-5 text-center">
+        <h1 class=" mb-4" style="color:gold">SCHEDULE</h1>
+        <p class="lead text-white" style="font-size: larger;"><u>EVENT DATE: MAY 24</u></p><br>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="schedule-item py-3">
+                        <p class="text-white mb-1" style="font-size: larger;">9:00 AM - 10:00 AM</p>
+                        <h4 class="text-white">Satya Nadella</h4>
+                        <p class="text-white" style="font-size: larger;">Digital Transformation and Technology Ethics</p>
+                        <hr class="bg-secondary">
+                    </div>
+                    <div class="schedule-item py-3">
+                        <p class="text-white mb-1" style="font-size: larger;">10:30 AM - 11:30 AM</p>
+                        <h4 class="text-white">Sundar Pichai</h4>
+                        <p class="text-white" style="font-size: larger;">Google Technologies and Cloud Computing</p>
+                        <hr class="bg-secondary">
+                    </div>
+                    <div class="schedule-item py-3">
+                        <p class="text-white  mb-1" style="font-size: larger;">12:00 PM - 1:00 PM</p>
+                        <h4 class="text-white">Marissa Mayer</h4>
+                        <p class="text-white" style="font-size: larger;">Technology Innovation and Leadership in Tech</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><br>
+
+    <!-- Location Section -->
+    <section id="location" class="py-5">
+        <h1 style="color:gold;text-align: center;">Event Location</h1>
+        <p style="color:white;font-size: large;">Event will take place at the EventHub Center, located at Gandhipuram, Coimbatore, India.</p>
+        <div class="text-center">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15665.12005579899!2d76.95710773326499!3d11.017605188684316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85855910aed83%3A0x80875de5cd370a9d!2sGandhipuram%2C%20Tamil%20Nadu%20641012!5e0!3m2!1sen!2sin!4v1743838480257!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+    <br>
+   <!-- Packages Section -->
+   <section id="packages" class="py-5">
+    <h1 style="color:gold;text-align: center;">Event Packages</h1><br>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body text-center" >
+                    <h5 class="card-title">Basic Package</h5>
+                    <p style="text-align: center;background-color: gold;">$99</p>
+                    <a href="payment.html" class="btn btn-success">Choose Package</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body text-center" >
+                    <h5 class="card-title">Standard Package</h5>
+                    <p style="text-align: center;background-color: gold;">$199</p>
+                    <a href="payment.html" class="btn btn-success">Choose Package</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body text-center" >
+                    <h5 class="card-title">VIP Package</h5>
+                    <p style="text-align: center;background-color: gold;">$299</p>
+                    <a href="payment.html" class="btn btn-success">Choose Package</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+</main>
+<br>
+
+<footer class="bg-dark text-white text-center py-3">
+    <p>© 2025 EventHub. All rights reserved.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

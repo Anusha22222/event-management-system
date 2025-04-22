@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Conference</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .signup-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .signup-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+        .forgot-password {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .forgot-password a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            border:2px solid black;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" style="color:#d32f2f; margin-left:20px; font-weight: bold;">Back to home page</a>
+    <div class="login-container">
+        <h2>Sign In for Conference</h2>
+        <form id="RegForm" name="RegForm" action="register.html">
+            <div class="mb-3 row">
+                <label for="staticEmail" class="col-sm-4 col-form-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="text"  class="form-control" id="email">
+                  <span id="email-error" class="error-message"></span>
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-4 col-form-label">Password</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="password">
+                  <span id="password-error" class="error-message"></span>
+                </div>
+              </div>
+              <button>Sign-in</button>
+        </form>
+        <div class="forgot-password">
+            <p><a href="forgot-password.html">Forgot your password?</a></p>
+        </div>
+
+        <div class="signup-link">
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("RegForm").addEventListener("submit", function(event) {
+            const email = document.getElementById("email").value;
+            const pass = document.getElementById("password").value;
+        
+            const emailErr = document.getElementById("email-error");
+            const passErr = document.getElementById("password-error");
+            
+            emailErr.textContent = "";
+            passErr.textContent = "";
+            
+            let isValid = true;
+            if (email === "" || !email.includes("@") || !email.includes(".")) {
+                emailErr.textContent = "Please enter a valid email address.";
+                isValid = false;
+            }
+            if (pass === "" || pass.length < 6) {
+                passErr.textContent = "Please enter a password with at least 6 characters.";
+                isValid = false;
+            }
+            if (!isValid) {
+                event.preventDefault(); // Prevent form submission if validation fails.
+            }
+
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>

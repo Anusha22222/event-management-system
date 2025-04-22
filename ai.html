@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management - AI Summit Conference</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+           background-image: url('https://media.istockphoto.com/id/1470617656/vector/ai-artificial-intelligence-chipset-on-circuit-board-in-futuristic-concept-suitable-for.jpg?s=612x612&w=0&k=20&c=_wC-pphyNI2muaUHG4N9JuYXxJEMDuzx56Dvzr8ZDUk=');  
+           background-size: cover;  
+           background-position: center center;  
+           background-repeat: no-repeat;  
+        }
+        header{
+          position: fixed;
+          width: 100%;
+          z-index: 1000;
+        }
+        main{
+            padding-top: 4rem;
+        }
+        .nav-link{
+            color:white;
+        }
+        button:hover{
+            border-radius: 100px ;
+        }
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 8px;
+            background-color: #343148ff;
+            font-weight: bold;
+        }
+        iframe {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">EventHub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#speakers">Speakers</a></li>
+                <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
+                <li class="nav-item"><a class="nav-link" href="#location">Location</a></li>
+                <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
+            </ul>
+        </div> 
+    </div>
+</nav>
+</header>
+
+<main>
+<a href="index.html" style="padding-top: 80px;color:magenta;margin-left: 20px;font-weight: bold">Back to home page</a>
+<h1 style="text-align: center;color:gold;">AI SUMMIT CONFERENCE</h1>
+<!-- About -->
+<section id="about" class="py-5">
+    <h1 style="text-align: center;color:rgba(255, 20, 145, 0.75);background-color: #ccc;">ABOUT</h1><br>
+    <div style="text-align: center;">
+        <!-- Image for About Section -->
+        <img id="about-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd-M_r7bEyuBQzUODeKwobumjZ2bnoB_uelw&s" class="img-fluid" alt="Technology" style="height:300px;width: 450px;display: none;">
+    </div><br>
+    <p style="text-align: center;color:white;font-size: larger;font: bold;">The AI Summit is designed for both seasoned professionals and newcomers to the field. Whether you are a researcher, developer, entrepreneur, or someone passionate about the future of AI, this summit offers valuable sessions and networking opportunities to inspire and empower participants. Join us for a deep dive into the transformative world of artificial intelligence and its limitless potential.</p>
+    
+    <!-- Button to toggle the image visibility -->
+    <div style="text-align: center;">
+        <button id="slidedownImage" class="btn btn-primary">AI Image</button>
+    </div>
+    <br>
+    <div style="text-align: center;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Cx5aNwnZYDc?si=xf600SE22xMhiMS5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+</section>
+<br>
+<!-- Speakers -->
+<section id="speakers" class="py-5">
+    <h1 style="text-align: center;color:rgba(255, 20, 145, 0.75);background-color: #ccc;">SPEAKERS</h1><br>
+    <img src="https://i.insider.com/67080adda70318649280eb5e?width=700" style="height: 300px;" class="rounded mx-auto d-block" alt="speaker"><br>
+    <p style="text-align:center;color:lime;font-size: larger;">Demis Hassabis</p>
+    <p style="text-align: center;color:gold;font-size: larger;font: bold;">Co-founder and CEO of DeepMind</p><br>
+    <br>
+    <img src="https://www.bankrate.com/brp/2025/02/06145605/elon-musk-2025-worlds-richest-person.jpg?auto=webp&optimize=high&crop=16:9" style="height: 300px;width:400px"class="rounded mx-auto d-block" alt="speaker"><br>
+    <h2 style="text-align: center;color:lime;font-size: larger;">Elon Musk</h2>
+    <p style="text-align: center;color:gold;font-size: larger;font: bold;">Founder of OpenAI</p><br>
+    <br>
+    <img src="https://akm-img-a-in.tosshub.com/businesstoday/images/story/202410/671b126e7e4db-meta-chief-ai-scientist-yann-lecun-image-meta-140208834-16x9.png?size=1200:675" style="height: 300px;width:400px"class="rounded mx-auto d-block" alt="speaker"><br>
+    <h2 style="text-align: center;color:lime;font-size: larger;">Yann LeCun</h2>
+    <p style="text-align: center;color:gold;font-size: larger;font: bold;">Chief AI Scientist at Facebook</p><br>
+</section><br>
+
+<!-- Schedule -->
+<section id="schedule" class="py-5">
+    <h1 style="text-align: center;color: rgba(255, 20, 145, 0.75);background-color: #ccc;">SCHEDULE</h1><br>
+    <p style="text-align: center;color:gold;font-size: larger;font: bold;"><u>EVENT DATE: MAY 26</u></p><br>
+    <p style="text-align: center;color:white;font-size: larger;font: bold;">9.00AM to 10.00AM</p>
+    <p style="text-align: center;color:white;font-size: larger;font: bold;">Demis Hassabis</p>
+    <p style="text-align: center;color:white;font-size: larger;font: bold;">Reaching New Frontiers</p><br>
+    <hr style="color:chartreuse">
+    <p style="text-align: center;color:white;font-size: larger;font: bold;">10.30AM to 11.30AM</p>
+    <p style="text-align: center;color:white;font-size: larger;font: bold;">Elon Musk</p>
+    <p style="text-align: center;color:white;font-size: larger;font: bold;">The Role of AI in Space Exploration and Autonomous Systems</p><br>
+    <hr style="color: chartreuse;">
+    <p style="text-align: center;color:white;font-size: larger;font: bold;">12.00PM to 1.00PM</p>
+    <p style="text-align: center;color:white;font-size: larger;font: bold;">Yann LeCun</p>
+    <p style="text-align: center;color:white;font-size: larger;font: bold;">The Evolution of Deep Learning</p>
+</section>
+<br>
+<!-- Location Section -->
+<section id="location" class="py-5">
+    <h1 style="color:gold;text-align: center;">Event Location</h1>
+    <p style="color:white;font-size: large;">Event will take place at the EventHub Center, located at Gandhipuram, Coimbatore, India.</p>
+    <div class="text-center">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15665.12005579899!2d76.95710773326499!3d11.017605188684316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85855910aed83%3A0x80875de5cd370a9d!2sGandhipuram%2C%20Tamil%20Nadu%20641012!5e0!3m2!1sen!2sin!4v1743838480257!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+<br>
+<!-- Packages Section -->
+<section id="packages" class="py-5">
+<h1 style="color:gold;text-align: center;">Event Packages</h1><br>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body text-center" >
+                <h5 class="card-title">Basic Package</h5>
+                <p style="text-align: center;background-color: gold;">$99</p>
+                <a href="payment.html" class="btn btn-success">Choose Package</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body text-center" >
+                <h5 class="card-title">Standard Package</h5>
+                <p style="text-align: center;background-color: gold;">$199</p>
+                <a href="payment.html" class="btn btn-success">Choose Package</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body text-center" >
+                <h5 class="card-title">VIP Package</h5>
+                <p style="text-align: center;background-color: gold;">$299</p>
+                <a href="payment.html" class="btn btn-success">Choose Package</a>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<br>
+</main>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 EventHub. All rights reserved.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#slidedownImage").click(function() {
+            $("#about-image").slideDown("show");  
+        });
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

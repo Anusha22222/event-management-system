@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management - Web Development Workshop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            background-color:#201315;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        main {
+            padding-top: 4rem;
+        }
+
+        .nav-link {
+            color: white;
+        }
+        section{
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 8px;
+            background-color:#E76D57;
+            font-weight: bold;
+        }
+        #about {
+            color: white;
+            text-align: center;
+        }
+        
+        #about h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        #about iframe {
+            margin: 20px auto;
+            display: block;
+        }
+
+        #speakers {
+            padding: 50px 0;
+        }
+
+        .speaker {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .speaker li {
+            text-align: center;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.938);
+            width: 250px;
+        }
+
+        .speaker img {
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        #schedule {
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        iframe {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">EventHub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#speakers">Speakers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#location">Location</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <a href="index.html" style="color:white; margin-left:20px;font-weight: bold">Back to home page</a><br>
+    <br>
+    <section id="about" class="py-5">
+        <h1 style="color:maroon">WEB DEVELOPMENT WORKSHOP</h1>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/kMNad1UbgoI?si=nX50FrOfezGvwZqs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p style="text-align: center; color: black; font-size: larger; font-weight: bold;">Join us for an immersive web development workshop!</p>
+    </section><br>
+
+    <section id="speakers" class="py-5">
+        <h1 style="color: maroon; text-align: center;">SPEAKERS</h1>
+        <ul class="speaker">
+            <li>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLqWNfHXm4-7YMj22uMiUsFr9kIDgpPBUrzA&s" height="200px" width="200px" alt="speaker 1"><br>
+                <h5 class="card-title">Mark Techson</h5>
+                <p class="card-text">Engineer Leader</p>
+            </li>
+            <li>
+                <img src="https://assets-us-01.kc-usercontent.com/5cb25086-82d2-4c89-94f0-8450813a0fd3/c8daf9a8-406b-4a52-8c33-85dcde868368/Shruti_Kapoor.jpg?fm=jpg&auto=format" height="200px" width="200px" alt="speaker 2"><br>
+                <h5 class="card-title">Shruti Kapoor</h5>
+                <p class="card-text">Staff Engineer & Educator</p>
+            </li>
+            <li>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaQULOe1_j0Cp_wl7APISxXxKWpENTboY1bA&s" height="200px" width="200px" alt="speaker 3"><br>
+                <h5 class="card-title">Kent C. Dodds</h5>
+                <p class="card-text">Developer</p>
+            </li>
+        </ul>
+    </section><br>
+
+    <section id="schedule" class="py-5">
+        <h1 style="text-align: center; color: maroon;">SCHEDULE</h1><br>
+        <p style="text-align: center; color: blue; font-size: larger; font-weight: bold;"><u>EVENT DATE: JUNE 3</u></p><br>
+        <p style="text-align: center; color: black; font-size: larger; font-weight: bold;">9.00AM to 10.00AM</p>
+        <p style="text-align: center; color: black; font-size: larger; font-weight: bold;">Mark Techson</p>
+        <p style="text-align: center; color: black; font-size: larger; font-weight: bold;">Modern Front-End Frameworks: React, Vue, Angular</p><br>
+        <hr style="color: chartreuse;">
+        <p style="text-align: center; color: black; font-size: larger; font-weight: bold;">10.30AM to 11.30AM</p>
+        <p style="text-align: center; color: black; font-size: larger; font-weight: bold;">Shruti Kapoor</p>
+        <p style="text-align: center; color: black; font-size: larger; font-weight: bold;">Building Scalable APIs with Node.js and Express</p><br>
+        <hr style="color: chartreuse;">
+        <p style="text-align: center; color: black; font-size: larger; font-weight: bold;">12.00PM to 1.00PM</p>
+        <p style="text-align: center; color: black; font-size: larger; font-weight: bold;">Kent C. Dodds</p>
+        <p style="text-align: center; color: black; font-size: larger; font-weight: bold;">Full-Stack Development: Deploying and Maintaining Web Applications</p>
+    </section>
+    <br>
+  <!-- Location Section -->
+  <section id="location" class="py-5">
+    <h1 style="color:maroon;text-align: center;">Event Location</h1>
+    <p style="color:black;font-size: large;">Event will take place at the EventHub Center, located at Gandhipuram, Coimbatore, India.</p>
+    <div class="text-center">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15665.12005579899!2d76.95710773326499!3d11.017605188684316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85855910aed83%3A0x80875de5cd370a9d!2sGandhipuram%2C%20Tamil%20Nadu%20641012!5e0!3m2!1sen!2sin!4v1743838480257!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+<br>
+<!-- Packages Section -->
+<section id="packages" class="py-5">
+<h1 style="color:maroon;text-align: center;">Event Packages</h1><br>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body text-center" >
+                <h5 class="card-title">Basic Package</h5>
+                <p style="text-align: center;background-color: gold;">$99</p>
+                <a href="payment.html" class="btn btn-success">Choose Package</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body text-center" >
+                <h5 class="card-title">Standard Package</h5>
+                <p style="text-align: center;background-color: gold;">$199</p>
+                <a href="payment.html" class="btn btn-success">Choose Package</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body text-center" >
+                <h5 class="card-title">VIP Package</h5>
+                <p style="text-align: center;background-color: gold;">$299</p>
+                <a href="payment.html" class="btn btn-success">Choose Package</a>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<br>    
+</main>
+
+<footer class="bg-dark text-white text-center py-3">
+    <p>© 2025 EventHub. All rights reserved.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>

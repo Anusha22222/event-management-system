@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        .nav-link{
+           color:white;
+        }
+        header{
+          position: fixed;
+          width: 100%;
+          z-index: 1000;
+        }
+        main{
+            padding-top: 4rem;
+        }
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        /* Body Styling */
+        body {
+            background: linear-gradient(135deg, black,blue,black);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Image Styling */
+        .img-fluid {
+            height: 50%;
+            width: 50%;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Hover effect on image */
+        .img-fluid:hover {
+            transform: scale(1.1);
+        }
+
+        /* Section Titles */
+        h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: slideInFromTop 1s ease-out;
+            color:darkred;
+        }
+
+        /* Paragraph styling */
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        /* Button styling */
+        .btn {
+            display: block;
+            width: 100%;
+            font-size: 1.2em;
+            padding: 12px;
+            background-color: #28a745;
+            border-radius: 5px;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+        /* Animation for fadeIn */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Animation for sliding text */
+        @keyframes slideInFromTop {
+            0% { transform: translateY(-30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Speaker Card Styling */
+        .card {
+            border: none;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Video Styling */
+        iframe {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        .feedback-section {
+            margin-top: 2rem;
+            padding-top: 1rem;
+        }
+        .feedback-section textarea.form-control {
+            border: 1px solid black; /* Add black border to textarea */
+        }
+        .rating {
+            display: inline-block;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            float: right;
+            color: grey;
+            font-size: 2rem;
+        }
+
+        .rating label:before {
+            content: '\2605';
+        }
+
+        .rating input:checked~label,
+        .rating input:checked~label~label {
+            color: #ffc107;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2em;
+            }
+
+            .img-fluid {
+                width: 100%;
+                height: auto;
+            }
+        }
+        footer{
+            margin-top: 2px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">EventHub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#aboutus">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#speakers">Speakers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#location">Location</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#video">Video</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#feedback">Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section id="aboutus" class="py-5" style="background-color:darksalmon;color:black">
+        <h2>Event</h2>
+        <div style="text-align: center;">
+        <img src="https://i0.wp.com/en.split-techcity.com/wp-content/uploads/2021/05/DSC_0074.jpg?resize=1524%2C1016&ssl=1" alt="Event Image" class="img-fluid mb-4">
+        </div>
+        <p><strong>Description:</strong>Event management involves organizing and coordinating all aspects of the event, including planning the agenda, securing speakers, managing logistics, and ensuring smooth execution. It focuses on creating a valuable experience for participants through networking, learning opportunities, and efficient use of resources.</p>
+        <a href="sign-in.html" class="btn btn-success">Register for Event</a>
+    </section>
+<br><br>
+    <!-- Speakers Section -->
+    <section id="speakers" class="py-5" style="background-color: burlywood;color:black">
+        <h2 style="color:darkred">Meet Our Speakers</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center" style="background-color: rgba(95, 158, 160, 0.288);">
+                        <h5 class="card-title" style="color:blue">Shanthini Ramesh</h5>
+                        <p>Senior Data Scientist at Mindtree Coimbatore</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center" style="background-color: rgba(95, 158, 160, 0.288);">
+                        <h5 class="card-title" style="color:blue">Radhika Nair</h5>
+                        <p>Founder & CEO of TechWiz Solutions, Coimbatore</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center" style="background-color: rgba(95, 158, 160, 0.288);">
+                        <h5 class="card-title" style="color:blue">Nandhini Venkat</h5>
+                        <p>Senior Developer at Zoho Corporation, Coimbatore</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br>
+    <!-- Schedule Section -->
+    <section id="schedule" class="py-5" style="background-color: darksalmon;">
+        <h2>Event Schedule</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Speaker</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>10:00 AM</td>
+                    <td>Shanthini Ramesh</td>
+                </tr>
+                <tr>
+                    <td>11:00 AM</td>
+                    <td>Radhika Nair</td>
+                </tr>
+                <tr>
+                    <td>12:30 PM</td>
+                    <td>Lunch Break</td>
+                </tr>
+                <tr>
+                    <td>1:30 PM</td>
+                    <td>Nandhini Venkat</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <br><br>
+    <!-- Location Section -->
+    <section id="location" class="py-5" style="background-color: burlywood;">
+        <h2>Event Location</h2>
+        <p>Event will take place at the EventHub Center, located at Gandhipuram, Coimbatore, India.</p>
+        <div class="text-center">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15665.12005579899!2d76.95710773326499!3d11.017605188684316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85855910aed83%3A0x80875de5cd370a9d!2sGandhipuram%2C%20Tamil%20Nadu%20641012!5e0!3m2!1sen!2sin!4v1743838480257!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+    <br><br>
+    <!-- Video Section -->
+    <section id="video" class="py-5" style="background-color: darksalmon;">
+        <h2>Motivated Video</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/4n02_Ac4qQc?si=xnhThV6yqR9lNZu5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </section>
+    <br><br>
+    <!-- Packages Section -->
+    <section id="packages" class="py-5" style="background-color: burlywood;color:black">
+        <h2 style="color:darkred">Event Packages</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center" style="background-color: rgba(95, 158, 160, 0.288);">
+                        <h5 class="card-title">Basic Package</h5>
+                        <p style="text-align: center;">$99</p>
+                        <a href="payment.html" class="btn btn-success">Choose Package</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center" style="background-color: rgba(95, 158, 160, 0.288);">
+                        <h5 class="card-title">Standard Package</h5>
+                        <p style="text-align: center;">$199</p>
+                        <a href="payment.html" class="btn btn-success">Choose Package</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center" style="background-color: rgba(95, 158, 160, 0.288);">
+                        <h5 class="card-title">VIP Package</h5>
+                        <p style="text-align: center;">$299</p>
+                        <a href="payment.html" class="btn btn-success">Choose Package</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br>
+    <section id="feedback" class="py-5" style="background-color: darksalmon">
+        <div class="feedback-section">
+            <h6>Post-Event Feedback</h6>
+            <div class="rating">
+                <input type="radio" id="star5-tech" name="rating-tech" value="5" /><label for="star5-tech"></label>
+                <input type="radio" id="star4-tech" name="rating-tech" value="4" /><label for="star4-tech"></label>
+                <input type="radio" id="star3-tech" name="rating-tech" value="3" /><label for="star3-tech"></label>
+                <input type="radio" id="star2-tech" name="rating-tech" value="2" /><label for="star2-tech"></label>
+                <input type="radio" id="star1-tech" name="rating-tech" value="1" /><label for="star1-tech"></label>
+            </div>
+            <textarea class="form-control" placeholder="Your feedback"></textarea>
+            <a href="valuablefeedback.html"><button class="btn btn-primary mt-2">Submit Feedback</button></a>
+        </div>
+    </section>
+<br><br>
+</main>
+<!-- Footer section -->
+<footer class="bg-dark text-white text-center py-3">
+    <p style="text-align: center;">&copy; 2025 EventHub. All rights reserved.</p>
+</footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>

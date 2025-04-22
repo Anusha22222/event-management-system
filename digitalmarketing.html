@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management - Digital Marketing Workshop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+             background-color: #6d6d6d;
+        }
+        header {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        main {
+            padding-top: 4rem;
+        }
+
+        .nav-link {
+            color: white;
+        }
+
+        #about {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://learning.oilab.in/public/img/Digital%20Marketing%20Course%20.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 0;
+        }
+
+        #about h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        #about iframe {
+            margin: 30px auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        #speakers { 
+            padding: 60px 0;
+        }
+
+        .speaker {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .speaker li {
+            text-align: center;
+            margin: 30px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            width: 280px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .speaker li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .speaker img {
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 8px;
+            background-color: #323232;
+            font-weight: bold;
+            color:white;
+        }
+        #location iframe {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">EventHub</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#speakers">Speakers</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#location">Location</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
+                    </ul>
+                </div> 
+            </div>
+        </nav>
+    </header>
+
+<main>
+    <a href="index.html" style="color:#d32f2f; margin-left:20px; font-weight: bold;">Back to home page</a><br>
+    <br>
+    <section id="about" class="py-5">
+        <h1 style="color:gold">DIGITAL MARKETING WORKSHOP</h1>
+        <p style="text-align: center; color: white; font-size: 1.3rem; font-weight: 600;">Unlock the power of digital marketing by learning strategies in SEO, content creation and social media, to boost brand visibility and engagement</p>
+        <div style="text-align: center;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/PpWeRTceqkc?si=OCGMR0yzEWW0plwc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div><br>
+    </section><br>
+
+    <section id="speakers" class="py-5">
+        <h1 style="color: gold; text-align: center;">SPEAKERS</h1>
+        <ul class="speaker">
+            <li>
+                <img src="https://www.eaglestalent.com/wp-content/uploads/2019/04/neilpatelfinal.jpg" height="200px" width="200px" alt="speaker 1"><br>
+                <h5 class="card-title">Neil Patel</h5>
+                <p class="card-text">Co-founder of Crazy Egg</p>
+            </li>
+            <li>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAhAvFocFDGZ-B4Be-mXzptwjOJEg9rOlgEg&s" height="200px" width="200px" alt="speaker 2"><br>
+                <h5 class="card-title">Rand Fishkin</h5>
+                <p class="card-text">Founder of SparkToro</p>
+            </li>
+            <li>
+                <img src="https://pbs.twimg.com/profile_images/1306741028469141509/hXK64Zmi_400x400.jpg" height="200px" width="200px" alt="speaker 3"><br>
+                <h5 class="card-title">Amy Porterfield</h5>
+                <p class="card-text">Digital marketing educator</p>
+            </li>
+        </ul>
+    </section><br>
+
+    <section id="schedule" class="py-5">
+        <h1 style="text-align: center;">SCHEDULE</h1><br>
+        <p style="text-align: center; color:gold; font-size: 1.2rem; font-weight: bold;"><u>EVENT DATE: JUNE 22</u></p><br>
+        <p style="text-align: center; font-size: 1.1rem; font-weight: 600;">9.00AM to 10.00AM</p>
+        <p style="text-align: center;font-size: 1.1rem;">Neil Patel</p>
+        <p style="text-align: center;font-size: 1.1rem;">SEO</p><br>
+        <hr style="color:rgba(255, 255, 255, 0.69);">
+        <p style="text-align: center;font-size: 1.1rem; font-weight: 600;">10.30AM to 11.30AM</p>
+        <p style="text-align: center;font-size: 1.1rem;">Rand Fishkin</p>
+        <p style="text-align: center; font-size: 1.1rem;">Content Marketing</p><br>
+        <hr style="color: rgba(255, 255, 255, 0.69);">
+        <p style="text-align: center; font-size: 1.1rem; font-weight: 600;">12.00PM to 1.00PM</p>
+        <p style="text-align: center;font-size: 1.1rem;">Amy Porterfield</p>
+        <p style="text-align: center;font-size: 1.1rem;">Social Media Marketing</p>
+    </section>
+    <br>
+<!-- Location Section -->
+<section id="location" class="py-5">
+    <h1 style="color:gold;text-align: center;">Event Location</h1>
+    <p style="color:white;font-size: large;">Event will take place at the EventHub Center, located at Gandhipuram, Coimbatore, India.</p>
+    <div class="text-center">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15665.12005579899!2d76.95710773326499!3d11.017605188684316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85855910aed83%3A0x80875de5cd370a9d!2sGandhipuram%2C%20Tamil%20Nadu%20641012!5e0!3m2!1sen!2sin!4v1743838480257!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+<br>
+<!-- Packages Section -->
+<section id="packages" class="py-5">
+<h1 style="color:gold;text-align: center;">Event Packages</h1><br>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body text-center" >
+                <h5 class="card-title">Basic Package</h5>
+                <p style="text-align: center;background-color: gold;">$99</p>
+                <a href="payment.html" class="btn btn-success">Choose Package</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body text-center" >
+                <h5 class="card-title">Standard Package</h5>
+                <p style="text-align: center;background-color: gold;">$199</p>
+                <a href="payment.html" class="btn btn-success">Choose Package</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body text-center" >
+                <h5 class="card-title">VIP Package</h5>
+                <p style="text-align: center;background-color: gold;">$299</p>
+                <a href="payment.html" class="btn btn-success">Choose Package</a>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<br>    
+</main>
+
+<footer class="bg-dark text-white text-center py-3">
+    <p>© 2025 EventHub. All rights reserved.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>

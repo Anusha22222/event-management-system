@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+footer {
+    background: #333;
+    color: white;
+}
+.feedback-section {
+    margin-top: 1.5rem; /* Slightly reduced top margin */
+    border-top: 1px solid #ccc; /* Lighter border */
+    padding-top: 1rem;
+}
+
+.feedback-section h6 {
+    font-size: 1rem; /* Slightly smaller heading */
+    margin-bottom: 0.5rem;
+}
+
+.rating {
+    display: flex; /* Use flexbox for better alignment */
+    flex-direction: row-reverse; /* To keep stars in the correct order */
+    margin-bottom: 0.5rem; /* Add a little space below the rating */
+}
+
+.rating label {
+    position: relative; /* For absolute positioning of the star */
+    width: 1.5rem; /* Adjust star size */
+    height: 1.5rem;
+    margin-left: 0.2rem;
+    cursor: pointer;
+    font-size: 1.5rem; /* Adjust star size */
+    color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rating label:before {
+    content: '\2605';
+}
+
+.rating input {
+    display: none;
+}
+
+.rating input:checked~label,
+.rating input:checked~label~label {
+    color: #ffc107;
+}
+
+.feedback-section textarea.form-control {
+    border: 1px solid #ccc;
+    font-size: 0.9rem; /* Slightly smaller font in textarea */
+}
+
+.feedback-section button.btn-primary {
+    font-size: 0.9rem; /* Slightly smaller button text */
+    padding: 0.3rem 0.6rem; /* Adjust button padding */
+    margin-top: 0.5rem;
+}
+
+.error-message {
+    font-size: 0.8rem; /* Smaller error message */
+    margin-top: 0.2rem;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 767.98px) { /* Adjust breakpoint as needed */
+    .rating {
+        margin-bottom: 0.3rem;
+    }
+
+    .rating label {
+        width: 1.2rem; /* Further reduce star size on small screens */
+        height: 1.2rem;
+        font-size: 1.2rem;
+        margin-left: 0.1rem;
+    }
+
+    .feedback-section textarea.form-control {
+        font-size: 0.8rem;
+    }
+
+    .feedback-section button.btn-primary {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.5rem;
+    }
+}

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="eventcreate.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body{
+            background-color: #b7a08b;
+            color:white;
+        }
+        .nav-link{
+           color:white;
+        }
+        header{
+          position: fixed;
+          width: 100%;
+          z-index: 1000;
+        }
+        main{
+            padding-top: 4rem;
+        }
+        section {
+            background-color: #0b2e33;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            font-weight: bold;
+        }
+        .feedback-section {
+        margin-top: 1.5rem;
+        border-top: 1px solid #ccc;
+        padding-top: 1rem;
+    }
+
+    .feedback-section h6 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .rating-container {
+        margin-bottom: 0.5rem;
+    }
+
+    .rating {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .rating label {
+        position: relative;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-left: 0.2rem;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: #ccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .rating label:before {
+        content: '\2605';
+    }
+
+    .rating input {
+        display: none;
+    }
+
+    .rating input:checked~label,
+    .rating input:checked~label~label {
+        color: #ffc107;
+    }
+
+    .feedback-section textarea.form-control {
+        border: 1px solid black;
+        font-size: 0.9rem;
+    }
+
+    .feedback-section button.btn-primary {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.6rem;
+        margin-top: 0.5rem;
+    }
+
+    .error-message {
+        font-size: 0.8rem;
+        margin-top: 0.2rem;
+    }
+
+    /* Responsive adjustments for feedback */
+    @media (max-width: 767.98px) {
+        .rating-container {
+            margin-bottom: 0.3rem;
+        }
+
+        .rating label {
+            width: 1.2rem;
+            height: 1.2rem;
+            font-size: 1.2rem;
+            margin-left: 0.1rem;
+        }
+
+        .feedback-section textarea.form-control {
+            font-size: 0.8rem;
+        }
+
+        .feedback-section button.btn-primary {
+            font-size: 0.8rem;
+            padding: 0.2rem 0.5rem;
+        }
+    }
+        #contact{
+          margin-top:40px;
+          margin-bottom:40px;
+        }
+        .card:hover{
+            transform: scale(1.1);
+        }
+        #contact form {
+            display: grid;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        footer{
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">EventHub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button> 
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#create-events">Create Events</a></li>
+                <li class="nav-item"><a class="nav-link" href="#conferences">Conferences</a></li>
+                <li class="nav-item"><a class="nav-link" href="#workshops">Workshops</a></li>
+                <li class="nav-item"><a class="nav-link" href="#feedback">Feedback</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="sign-in.html"><i class="fas fa-user"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</header>
+
+<main>
+<!-- Hero Section -->
+<section id="home" class="ext-white text-center py-5">
+    <h1>Welcome to EventHub</h1>
+    <p>Manage your Conferences and Workshops all in one place!</p>
+</section>
+<br>
+
+<section id="create-events" class="py-5">
+    <h2>Create Events</h2>
+    <form id="eventForm">
+        <label for="eventName">Event Name:</label>
+        <input type="text" id="eventName" name="eventName">
+        <div id="eventNameError" class="error"></div>
+
+        <label for="eventDescription">Description:</label>
+        <textarea id="eventDescription" name="eventDescription"></textarea>
+        <div id="eventDescriptionError" class="error"></div>
+
+        <label for="eventDate">Date:</label>
+        <input type="date" id="eventDate" name="eventDate">
+        <div id="eventDateError" class="error"></div>
+
+        <label for="eventImage">Image URL:</label>
+        <input type="url" id="eventImage" name="eventImage" placeholder="Enter event image URL">
+        <div id="eventImageError" class="error"></div>
+
+        <button type="button" onclick="addEvent()">Add Event</button>
+    </form>
+
+    <h2>Event List</h2>
+    <ul class="event-list" id="eventList"></ul>
+</section>
+<br>
+<br>
+
+<section id="feedback">
+    <section id="conferences" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Conference</h2>
+            <br>
+            <div class="row">
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://images.stockcake.com/public/a/7/a/a7acb612-27c9-469a-bb4f-92695cc7d178_large/tech-conference-presentation-stockcake.jpg" class="card-img-top" alt="Conference 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Tech Conference</h5>
+                            <p class="card-text">Explore the latest trends in technology with industry experts</p>
+                            <a href="tech.html" class="btn btn-success">Event Details</a>
+                            <a href="sign-in.html" class="btn btn-success">Register</a>
+                            <div class="feedback-section">
+                                <h6>Post-Event Feedback</h6>
+                                <div class="rating-container">
+                                    <div class="rating">
+                                        <input type="radio" id="star5-tech" name="rating-tech" value="5" /><label for="star5-tech"></label>
+                                        <input type="radio" id="star4-tech" name="rating-tech" value="4" /><label for="star4-tech"></label>
+                                        <input type="radio" id="star3-tech" name="rating-tech" value="3" /><label for="star3-tech"></label>
+                                        <input type="radio" id="star2-tech" name="rating-tech" value="2" /><label for="star2-tech"></label>
+                                        <input type="radio" id="star1-tech" name="rating-tech" value="1" /><label for="star1-tech"></label>
+                                    </div>
+                                    <div class="error-message" id="rating-error-tech" style="color: red;"></div>
+                                </div>
+                                <textarea class="form-control" placeholder="Your feedback" name="feedbackTextTech"></textarea>
+                                <div class="error-message" id="feedback-error-tech" style="color: red;"></div>
+                                <button class="btn btn-primary mt-2 submit-feedback-btn" data-event="tech">Submit Feedback</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://kotaielectronics.com/wp-content/uploads/2024/01/on-device-generative-ai-with-sub-10-billion-parameter-models.jpg" class="card-img-top" alt="Conference 2">
+                        <div class="card-body">
+                            <h5 class="card-title">AI Summit</h5>
+                            <p class="card-text">Learn about AI innovations and their real-world applications.</p>
+                            <a href="ai.html" class="btn btn-success">Event Details</a>
+                            <a href="sign-in.html" class="btn btn-success">Register</a>
+                            <div class="feedback-section">
+                                <h6>Post-Event Feedback</h6>
+                                <div class="rating-container">
+                                    <div class="rating">
+                                        <input type="radio" id="star5-ai" name="rating-ai" value="5" /><label for="star5-ai"></label>
+                                        <input type="radio" id="star4-ai" name="rating-ai" value="4" /><label for="star4-ai"></label>
+                                        <input type="radio" id="star3-ai" name="rating-ai" value="3" /><label for="star3-ai"></label>
+                                        <input type="radio" id="star2-ai" name="rating-ai" value="2" /><label for="star2-ai"></label>
+                                        <input type="radio" id="star1-ai" name="rating-ai" value="1" /><label for="star1-ai"></label>
+                                    </div>
+                                    <div class="error-message" id="rating-error-ai" style="color: red;"></div>
+                                </div>
+                                <textarea class="form-control" placeholder="Your feedback" name="feedbackTextAi"></textarea>
+                                <div class="error-message" id="feedback-error-ai" style="color: red;"></div>
+                                <button class="btn btn-primary mt-2 submit-feedback-btn" data-event="ai">Submit Feedback</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://cdn.pixabay.com/photo/2024/06/10/08/01/business-8820161_1280.png" class="card-img-top" alt="Conference 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Business Expo</h5>
+                            <p class="card-text">Networking event with top entrepreneurs and business leaders.</p>
+                            <a href="business.html" class="btn btn-success">Event Details</a>
+                            <a href="sign-in.html" class="btn btn-success">Register</a>
+                            <div class="feedback-section">
+                                <h6>Post-Event Feedback</h6>
+                                <div class="rating-container">
+                                    <div class="rating">
+                                        <input type="radio" id="star5-business" name="rating-business" value="5" /><label for="star5-business"></label>
+                                        <input type="radio" id="star4-business" name="rating-business" value="4" /><label for="star4-business"></label>
+                                        <input type="radio" id="star3-business" name="rating-business" value="3" /><label for="star3-business"></label>
+                                        <input type="radio" id="star2-business" name="rating-business" value="2" /><label for="star2-business"></label>
+                                        <input type="radio" id="star1-business" name="rating-business" value="1" /><label for="star1-business"></label>
+                                    </div>
+                                    <div class="error-message" id="rating-error-business" style="color: red;"></div>
+                                </div>
+                                <textarea class="form-control" placeholder="Your feedback" name="feedbackTextBusiness"></textarea>
+                                <div class="error-message" id="feedback-error-business" style="color: red;"></div>
+                                <button class="btn btn-primary mt-2 submit-feedback-btn" data-event="business">Submit Feedback</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <section id="workshops" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Workshops</h2>
+            <br>
+            <div class="row">
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0vxX7Ad2wlnMLvz3phmblj3KRVEv9VZEfxA&s" class="card-img-top" alt="Workshop 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Web Development Workshop</h5>
+                            <p class="card-text">Hands-on workshop on Frontend and Backend.</p>
+                            <a href="web.html" class="btn btn-success">Event Details</a>
+                            <a href="sign-in.html" class="btn btn-success">Register</a>
+                            <div class="feedback-section">
+                                <h6>Post-Event Feedback</h6>
+                                <div class="rating-container">
+                                    <div class="rating">
+                                        <input type="radio" id="star5-web" name="rating-web" value="5" /><label for="star5-web"></label>
+                                        <input type="radio" id="star4-web" name="rating-web" value="4" /><label for="star4-web"></label>
+                                        <input type="radio" id="star3-web" name="rating-web" value="3" /><label for="star3-web"></label>
+                                        <input type="radio" id="star2-web" name="rating-web" value="2" /><label for="star2-web"></label>
+                                        <input type="radio" id="star1-web" name="rating-web" value="1" /><label for="star1-web"></label>
+                                    </div>
+                                    <div class="error-message" id="rating-error-web" style="color: red;"></div>
+                                </div>
+                                <textarea class="form-control" placeholder="Your feedback" name="feedbackTextWeb"></textarea>
+                                <div class="error-message" id="feedback-error-web" style="color: red;"></div>
+                                <button class="btn btn-primary mt-2 submit-feedback-btn" data-event="web">Submit Feedback</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1joNui7--8lDfHEA5o-LeOk36rtKl2KgoMQ&s" class="card-img-top" height="100px" alt="Workshop 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Python for Data Science</h5>
+                            <p class="card-text">Learn Python data science and data analysis techniques.</p>
+                            <a href="datascience.html" class="btn btn-success">Event Details</a>
+                            <a href="sign-in.html" class="btn btn-success">Register</a>
+                            <div class="feedback-section">
+                                <h6>Post-Event Feedback</h6>
+                                <div class="rating-container">
+                                    <div class="rating">
+                                        <input type="radio" id="star5-python" name="rating-python" value="5" /><label for="star5-python"></label>
+                                        <input type="radio" id="star4-python" name="rating-python" value="4" /><label for="star4-python"></label>
+                                        <input type="radio" id="star3-python" name="rating-python" value="3" /><label for="star3-python"></label>
+                                        <input type="radio" id="star2-python" name="rating-python" value="2" /><label for="star2-python"></label>
+                                        <input type="radio" id="star1-python" name="rating-python" value="1" /><label for="star1-python"></label>
+                                    </div>
+                                    <div class="error-message" id="rating-error-python" style="color: red;"></div>
+                                </div>
+                                <textarea class="form-control" placeholder="Your feedback" name="feedbackTextPython"></textarea>
+                                <div class="error-message" id="feedback-error-python" style="color: red;"></div>
+                                <button class="btn btn-primary mt-2 submit-feedback-btn" data-event="python">Submit Feedback</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXVC60x-fde8EQRtaQCGJ_Mvwb2LO7tdBq1g&s" class="card-img-top" alt="Workshop 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Digital Marketing Workshop</h5>
+                            <p class="card-text">Master SEO, social media, and email marketing.</p>
+                            <a href="digitalmarketing.html" class="btn btn-success">Event Details</a>
+                            <a href="sign-in.html" class="btn btn-success">Register</a>
+                            <div class="feedback-section">
+                                <h6>Post-Event Feedback</h6>
+                                <div class="rating-container">
+                                    <div class="rating">
+                                        <input type="radio" id="star5-digital" name="rating-digital" value="5" /><label for="star5-digital"></label>
+                                        <input type="radio" id="star4-digital" name="rating-digital" value="4" /><label for="star4-digital"></label>
+                                        <input type="radio" id="star3-digital" name="rating-digital" value="3" /><label for="star3-digital"></label>
+                                        <input type="radio" id="star2-digital" name="rating-digital" value="2" /><label for="star2-digital"></label>
+                                        <input type="radio" id="star1-digital" name="rating-digital" value="1" /><label for="star1-digital"></label>
+                                    </div>
+                                    <div class="error-message" id="rating-error-digital" style="color: red;"></div>
+                                </div>
+                                <textarea class="form-control" placeholder="Your feedback" name="feedbackTextDigital"></textarea>
+                                <div class="error-message" id="feedback-error-digital" style="color: red;"></div>
+                                <button class="btn btn-primary mt-2 submit-feedback-btn" data-event="digital">Submit Feedback</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const submitButtons = document.querySelectorAll('.submit-feedback-btn');
+
+        submitButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const card = this.closest('.card');
+                const ratingContainer = card.querySelector('.rating-container');
+                const ratingError = ratingContainer.querySelector('.error-message');
+                const feedbackTextarea = card.querySelector('textarea');
+                const feedbackError = card.querySelector('.feedback-section .error-message:last-child');
+                const ratingInputs = ratingContainer.querySelectorAll('input[type="radio"]');
+                let selectedRating = null;
+                ratingInputs.forEach(input => {
+                    if (input.checked) {
+                        selectedRating = input.value;
+                    }
+                });
+
+                const feedbackText = feedbackTextarea.value.trim();
+                let isValid = true;
+
+                ratingError.textContent = '';
+                feedbackError.textContent = '';
+
+                if (!selectedRating) {
+                    ratingError.textContent = 'Please select a rating.';
+                    isValid = false;
+                }
+
+                if (!feedbackText) {
+                    feedbackError.textContent = 'Please enter your feedback.';
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    const eventType = this.dataset.event;
+                    console.log(`Feedback submitted for: ${eventType}`);
+                    console.log('Rating:', selectedRating);
+                    console.log('Feedback:', feedbackText);
+
+                    // Here you would typically send this data to your server
+                    // using an AJAX request (e.g., fetch or XMLHttpRequest).
+
+                    // For demonstration purposes, let's clear the feedback area after "submission"
+                    ratingInputs.forEach(input => {
+                        input.checked = false;
+                    });
+                    feedbackTextarea.value = '';
+                    alert('Thank you for your feedback!');
+                }
+            });
+        });
+    });
+    </script>
+</section>
+<br>
+<!-- Contact -->
+<section id="contact" >
+    <h2>Contact Us</h2>
+    <form id="contactform">
+        <label>Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <label>Email-Id:</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        <label>Phone No:</label>
+        <input type="phoneno" id="phoneno" name="phoneno" placeholder="Your phoneno" required>
+        <button type="submit" style="background-color: aqua;">Submit</button>
+        <input type="reset" value="Reset" name="Reset" style="background-color: aqua;">
+    </form><br>
+    <p><b>Email: hello@eventhub.com</b></p>
+    <p><b>Phone: 9784305467</b></p>
+    <script>
+        document.getElementById('contactform').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var phoneno = document.getElementById('phoneno').value;
+
+            alert('Thank you for contacting us!\n\nName: ' + name + '\nEmail: ' + email + '\nPhone No: ' + phoneno);
+  
+        });
+    </script>
+</section>
+
+</main>
+<!-- Footer --> 
+<footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 EventHub. All rights reserved.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+
+<script>
+    let events = JSON.parse(localStorage.getItem('events')) || []; // Load events from localStorage
+    let editingEventId = null; 
+
+function validateForm() {
+    let eventName = document.getElementById('eventName').value;
+    let eventDescription = document.getElementById('eventDescription').value;
+    let eventDate = document.getElementById('eventDate').value;
+    let eventImage = document.getElementById('eventImage').value;
+
+    let eventNameError = document.getElementById('eventNameError');
+    let eventDescriptionError = document.getElementById('eventDescriptionError');
+    let eventDateError = document.getElementById('eventDateError');
+    let eventImageError = document.getElementById('eventImageError');
+
+    let isValid = true;
+
+    if (eventName.trim() === '') {
+        eventNameError.textContent = 'Event name is required.';
+        isValid = false;
+    } else {
+        eventNameError.textContent = '';
+    }
+
+    if (eventDescription.trim() === '') {
+        eventDescriptionError.textContent = 'Description is required.';
+        isValid = false;
+    } else {
+        eventDescriptionError.textContent = '';
+    }
+
+    if (eventDate === '') {
+        eventDateError.textContent = 'Date is required.';
+        isValid = false;
+    } else {
+        eventDateError.textContent = '';
+    }
+
+    if (eventImage.trim() === '') {
+        eventImageError.textContent = 'Event image URL is required.';
+        isValid = false;
+    } else {
+        eventImageError.textContent = '';
+    }
+
+    return isValid;
+}
+
+function addEvent() {
+    if (validateForm()) {
+        let eventName = document.getElementById('eventName').value;
+        let eventDescription = document.getElementById('eventDescription').value;
+        let eventDate = document.getElementById('eventDate').value;
+        let eventImage = document.getElementById('eventImage').value;
+
+        if (editingEventId !== null) {
+            // Modify existing event
+            events = events.map(event => {
+                if (event.id === editingEventId) {
+                    return { id: editingEventId, name: eventName, description: eventDescription, date: eventDate, image: eventImage };
+                }
+                return event;
+            });
+            editingEventId = null;
+        } else {
+            // Add new event
+            events.push({ id: Date.now(), name: eventName, description: eventDescription, date: eventDate, image: eventImage });
+        }
+
+        localStorage.setItem('events', JSON.stringify(events)); // Save events to localStorage
+        renderEvents();
+        document.getElementById('eventForm').reset();
+    }
+}
+
+function renderEvents() {
+    const eventList = document.getElementById('eventList');
+    eventList.innerHTML = '';
+    events.forEach(event => {
+        const listItem = document.createElement('li');
+        listItem.classList.add('event-item');
+        listItem.innerHTML = `
+            <div>
+                <span>${event.name} - ${event.date} - ${event.description}</span>
+                <img src="${event.image}" alt="Event Image" class="event-image" />
+                <span></span>
+                <div class="event-actions">
+                    <button onclick="editEvent(${event.id})">Edit</button>
+                    <button onclick="deleteEvent(${event.id})">Delete</button>
+                    <a href="eventdetails.html?id=${event.id}" class="btn btn-info" style="margin-left:5px;color:white;background-color: #4CAF50;border:none;margin-top:10px">Event Details</a>
+                </div>
+            </div>
+        `;
+        eventList.appendChild(listItem);
+    });
+}
+
+function editEvent(id) {
+    const event = events.find(event => event.id === id);
+    if (event) {
+        document.getElementById('eventName').value = event.name;
+        document.getElementById('eventDescription').value = event.description;
+        document.getElementById('eventDate').value = event.date;
+        document.getElementById('eventImage').value = event.image;
+        editingEventId = id;
+    }
+}
+
+function deleteEvent(id) {
+    events = events.filter(event => event.id !== id);
+    localStorage.setItem('events', JSON.stringify(events)); // Save updated events to localStorage
+    renderEvents();
+}
+
+renderEvents();
+
+</script>
+
+</body>
+</html>
